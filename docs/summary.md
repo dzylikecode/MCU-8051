@@ -1,4 +1,4 @@
 - [intro](README.md)
 - [环境搭建](environment.md)
 - [SDCC 语法](syntax.md)
-- [电路图](circuit-diagram/README.md)
+- <a href="puzhong51-single-A3A4-circuit-diagram.pdf" target="_blank">电路图</a>
