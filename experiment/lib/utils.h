@@ -20,7 +20,7 @@ typedef unsigned int u16;
 #define setBitEx(var, bit, res)
 
 #define P2_0 1
-
+#define __code
 #endif // end of VSCODE_C_PP_PROPERTIES_JSON
 
 #endif

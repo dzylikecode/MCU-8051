@@ -7,6 +7,8 @@ docs_path = "../docs/experiment"
 assets_makefile = "assets/Makefile"
 assets_main = "assets/main.c"
 assets_readme = "assets/README.md"
+summary_file = "../docs/experiment/summary.md"
+link_format = "experiment/%s/README.md"
 
 
 def create_folder(project_name):
@@ -33,6 +35,12 @@ def create_docs_file(docs_folder):
     print("Created file: {}".format(os.path.join(docs_folder, "README.md")))
 
 
+def modify_summary(project_name):
+    with open(summary_file, "a") as f:
+        link = link_format % project_name
+        f.write("- [ ](%s)\n" % (link))
+
+
 if __name__ == "__main__":
     # 1.
     # create_folder("hello-dz")
@@ -44,6 +52,14 @@ if __name__ == "__main__":
     # create_exp_file(exp_folder)
     # create_docs_file(docs_folder)
     # 4.
+    # if len(sys.argv) != 2:
+    #     print("Usage: python3 dzmkdir.py <project_name>")
+    #     sys.exit(1)
+    # project_name = sys.argv[1]
+    # exp_folder, docs_folder = create_folder(project_name)
+    # create_exp_file(exp_folder)
+    # create_docs_file(docs_folder)
+    # 5.
     if len(sys.argv) != 2:
         print("Usage: python3 dzmkdir.py <project_name>")
         sys.exit(1)
@@ -51,4 +67,5 @@ if __name__ == "__main__":
     exp_folder, docs_folder = create_folder(project_name)
     create_exp_file(exp_folder)
     create_docs_file(docs_folder)
+    modify_summary(project_name)
     pass

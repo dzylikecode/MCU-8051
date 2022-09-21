@@ -1,5 +1,5 @@
 - [intro](experiment/README.md)
 - [LED 闪烁](experiment/01-LED-blink/README.md)
-- [LED 流水闪烁](experiment/02-LED-flow/README.md)
+- [流水灯](experiment/02-LED-flow/README.md)
 - [蜂鸣器](experiment/03-beep/README.md)
 - [数码管显示](experiment/04-digital-tube/README.md)
