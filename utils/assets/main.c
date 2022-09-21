@@ -1,5 +1,4 @@
 #include "lib/utils.h"
-#include "led.h"
 #include <8052.h>
 
 #define LED P2_0

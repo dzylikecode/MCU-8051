@@ -3,3 +3,4 @@
 - [流水灯](experiment/02-LED-flow/README.md)
 - [蜂鸣器](experiment/03-beep/README.md)
 - [数码管显示](experiment/04-digital-tube/README.md)
+- [独立按键](experiment/05-key/README.md)

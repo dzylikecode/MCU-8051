@@ -12,12 +12,14 @@ typedef unsigned int u16;
 #define clsBit(var, bit) set(var, (var)&getMask0(bit))
 #define setBit(var, bit) set(var, (var) | getMask1(bit))
 #define setBitEx(var, bit, res) setChar(var, clsBit(var, bit) | ((res) << (bit)))
+#define get(var) (var)
 
 #else // for vscode
 
 #define set(var, res)
 #define setChar(var, res)
 #define setBitEx(var, bit, res)
+#define get(var) 0
 
 #define P2_0 1
 #define __code

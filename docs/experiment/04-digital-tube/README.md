@@ -1,6 +1,6 @@
 # 数码管显示
 
-## 需求
+## 任务
 
 - 依次显示 0-7
 
@@ -39,3 +39,7 @@
 ### 位选
 
 通过 3-8 译码器控制
+
+## resources
+
+- [code](https://github.com/dzylikecode/MCU-8051/blob/master/experiment/04-digital-tube/main.c)

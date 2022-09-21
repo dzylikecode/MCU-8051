@@ -3,3 +3,4 @@ bin/
 .vscode/
 # aid 存放了程序的烧录软件
 aid/
+experiment/bin
