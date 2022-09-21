@@ -9,6 +9,12 @@ assets_main = "assets/main.c"
 assets_readme = "assets/README.md"
 summary_file = "../docs/experiment/summary.md"
 link_format = "experiment/%s/README.md"
+readme_template = """
+## resources
+
+- [code](https://github.com/dzylikecode/MCU-8051/blob/master/experiment/%s/main.c)
+
+"""
 
 
 def create_folder(project_name):
@@ -30,9 +36,11 @@ def create_exp_file(exp_folder):
     print("Created file: {}".format(os.path.join(exp_folder, "main.c")))
 
 
-def create_docs_file(docs_folder):
-    shutil.copy(assets_readme, docs_folder)
-    print("Created file: {}".format(os.path.join(docs_folder, "README.md")))
+def create_docs_file(docs_folder, project_name):
+    readme_path = os.path.join(docs_folder, "README.md")
+    with open(readme_path, "w") as f:
+        f.write(readme_template % project_name)
+    print("Created file: {}".format(readme_path))
 
 
 def modify_summary(project_name):
@@ -66,6 +74,6 @@ if __name__ == "__main__":
     project_name = sys.argv[1]
     exp_folder, docs_folder = create_folder(project_name)
     create_exp_file(exp_folder)
-    create_docs_file(docs_folder)
+    create_docs_file(docs_folder, project_name)
     modify_summary(project_name)
     pass

@@ -1,6 +1,14 @@
 #include "lib/utils.h"
 #include <8052.h>
 
+void delay(u16 i)
+{
+    while (i--)
+        ;
+}
+
+////////////////////////////////////////////////////////////
+// digital tube
 #define DIG_NUM 8
 #define CHOOSE_A P2_2
 #define CHOOSE_B P2_3
@@ -59,23 +67,55 @@ void drawDigitalTube(u8 pos, u8 shape)
     }
     set(SHAPE, shape);
 }
+////////////////////////////////////////////////////////////
+// matrix key
+#define KEY P1
+#define KEY_ROW_MASK 0xf0
+#define KEY_ROW_BIT 4
+#define KEY_COL_MASK 0x0f
+#define KEY_COL_BIT 0
+#define initRow() set(KEY, KEY_ROW_MASK)
+#define initCol() set(KEY, KEY_COL_MASK)
+#define getKey(key) (~get(KEY)) // reverse, 1101 -> 0010
+#define getRowKey() (initRow(), ((getKey(KEY) & KEY_ROW_MASK) >> KEY_ROW_BIT))
+#define getColKey() (initCol(), ((getKey(KEY) & KEY_COL_MASK) >> KEY_COL_BIT))
 
-void delay(u16 i)
+u8 transCode(u8 code)
 {
-    while (i--)
-        ;
+    switch (code)
+    {
+    case 0x01:
+        return 1;
+    case 0x02:
+        return 2;
+    case 0x04:
+        return 3;
+    case 0x08:
+        return 4;
+    }
+    return 0;
 }
 
 void main()
 {
-
+    u8 posX;
+    u8 posY;
+    u8 codeX;
+    u8 codeY;
+    u8 shape;
     while (1)
     {
-        for (int i = 0; i < DIG_NUM; i++)
+        codeX = getColKey();
+        codeY = getRowKey();
+        posX = 4 - transCode(codeX);  // [1 - 4] -> [3 - 0]
+        posY = 4 - transCode(codeY);  // [1 - 4] -> [3 - 0]
+        if (codeX != 0 && codeY != 0) // 判断是否有按键按下
         {
-            drawDigitalTube(i, shapeTalbe[i]);
-            delay(200);
-            drawDigitalTube(i, EMPTY);
+            shape = posY * 4 + posX;
         }
+
+        drawDigitalTube(0, shapeTalbe[shape]);
+        delay(200);
+        drawDigitalTube(0, 0);
     }
 }

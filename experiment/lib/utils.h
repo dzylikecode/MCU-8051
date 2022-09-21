@@ -16,12 +16,12 @@ typedef unsigned int u16;
 
 #else // for vscode
 
-#define set(var, res)
-#define setChar(var, res)
-#define setBitEx(var, bit, res)
+#define set(var, res) 0
+#define setChar(var, res) 0
+#define setBitEx(var, bit, res) 0
 #define get(var) 0
 
-#define P2_0 1
+#define P2_0 0
 #define __code
 #endif // end of VSCODE_C_PP_PROPERTIES_JSON
 

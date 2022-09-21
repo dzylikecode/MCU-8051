@@ -12,14 +12,13 @@ name=$(n)
 
 default: run
 
-# 创建软链接
 $(bin):
-	@ln -s $(proj_bin) $(bin)
+	@mkdir -p $(bin)
 
 run: $(bin)
 	@make -C $(proj)
 # 修改软链接
-	@ln -snf $(proj_bin) $(bin)
+	@cp -f $(proj_bin)/* $(bin)
 	@echo "Done!"
 
 ini:
