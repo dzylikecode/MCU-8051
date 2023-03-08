@@ -4,10 +4,6 @@
 
 - [普中科技](http://www.prechin.cn/index.html)单片机教程: stc89C51
 
-## tips
-
-- 原理图可以使用`Ctrl+F`快速定位搜索
-
 ## tutorial
 
 - [Chapter: Introduction to Embedded Systems with 8051 Micro Controller using Embedded C-Tutorial 1](https://www.youtube.com/watch?v=iQcr_8W3KXg&list=PLE1qlkmzXrwRQ2S4BBVkkqbd42E0ArZ9l&index=1)
