@@ -20,6 +20,12 @@
 
 `__code` :存放程序代码的内存地址空间
 
+- example
+
+  ```c
+  __data unsigned char test_data;
+  ```
+
 ## 位操作
 
 > using ~ on bit/bool/unsigned char variables can give unexpected results due to promotion to int
@@ -28,8 +34,19 @@
 
   使用`!`代替`~`
 
+## 函数
+
+- 一些有用的函数
+
+  > 没有看懂
+
+  SDCC Manual 中的 Code generation 部分(使用 `ctrl+f` 全局搜索`rotate`定位)
+
 ## reference
 
 - [51 单片机(STC89C52)在 Ubuntu 下的开发](https://www.cnblogs.com/milton/p/14994533.html)
 - [SDCC 與 Keil C 的差異](http://blog.chinaunix.net/uid-24203478-id-3062737.html)
 - [SDCC 编译器 + VSCode 开发 8 位微控制器](https://blog.csdn.net/qq_42992084/article/details/109375443)
+- [SDCC Manual (pdf)](http://sdcc.sourceforge.net/doc/sdccman.pdf)
+
+  3.5 SDCC Language Extensions

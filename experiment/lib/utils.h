@@ -9,7 +9,7 @@ typedef unsigned int u16;
 #define setChar(var, res) set(var, (u8)(res))
 #define getMask1(bit) (1 << (bit))
 #define getMask0(bit) (~getMask1(bit))
-#define clsBit(var, bit) set(var, (var)&getMask0(bit))
+#define clsBit(var, bit) set(var, (var) & getMask0(bit))
 #define setBit(var, bit) set(var, (var) | getMask1(bit))
 #define setBitEx(var, bit, res) setChar(var, clsBit(var, bit) | ((res) << (bit)))
 #define get(var) (var)
@@ -23,6 +23,11 @@ typedef unsigned int u16;
 
 #define P2_0 0
 #define __code
+
+#define __asm {
+#define __endasm }
+#define nop ;
+
 #endif // end of VSCODE_C_PP_PROPERTIES_JSON
 
 #endif

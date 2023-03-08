@@ -1,6 +1,6 @@
 temp/
 bin/
-.vscode/
+.vscode/settings.json
 # aid 存放了程序的烧录软件
 aid/
 experiment/bin
