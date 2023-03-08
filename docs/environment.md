@@ -27,6 +27,8 @@
     packihx main.ihx > main.hex
     ```
 
+    !> sdcc 生成的是`ihx`文件, 而烧录的一般是`hex`文件, 需要转化
+
 ### manual
 
 - [ubuntu-sdcc](https://manpages.ubuntu.com/manpages/bionic/man1/sdcc.1.html)

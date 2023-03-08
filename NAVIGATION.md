@@ -1,3 +1,3 @@
-- [home](https://dzylikecode.github.io/#/)
-- [intro](/)
+- [:house:](https://dzylikecode.github.io/#/)
+- [:boat:](/)
 - [experiment](experiment/)
