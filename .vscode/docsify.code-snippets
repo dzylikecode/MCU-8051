@@ -29,5 +29,11 @@
       "$0"
     ],
     "description": "link to github repository, blank"
+  },
+  "code blog": {
+    "scope": "markdown",
+    "prefix": "@codeblog",
+    "body": ["```${1:language}", "$2", "```", "$0"],
+    "description": "link to code blog"
   }
 }
