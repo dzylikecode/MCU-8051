@@ -45,3 +45,5 @@ repos-uninstall
 ```
 
 ### build
+
+read [experiment](/experiment/README.md#usage)
