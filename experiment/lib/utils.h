@@ -12,7 +12,7 @@ typedef unsigned int u16;
 #define setBitEx(var, bit, res) setChar(var, clsBit(var, bit) | ((res) << (bit)))
 #define get(var)                (var)
 
-#else // cheat for vscode
+#else // cheat vscode
 
 #define set(var, res)           0
 #define setChar(var, res)       0

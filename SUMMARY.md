@@ -3,4 +3,5 @@
 - [SDCC 语法](/docs/syntax.md)
 - [电路图](/docs/pdf.md)
 - [编程规范](/docs/code-style.md)
+- [issue](/docs/issue.md)
 - [timeline](/timeline.md)

@@ -9,7 +9,7 @@
 #define SHAPE       P0
 #define EMPTY       0x00
 
-__code u8 shapeTalbe[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07,
+__code u8 shapeTable[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07,
                           0x7f, 0x6f, 0x77, 0x7c, 0x39, 0x5e, 0x79, 0x71};
 
 void drawDigitalTube(u8 pos, u8 shape);
@@ -18,7 +18,7 @@ void delay(u16 i);
 void main() {
   while (1) {
     for (int i = 0; i < DIG_NUM; i++) {
-      drawDigitalTube(i, shapeTalbe[i]);
+      drawDigitalTube(i, shapeTable[i]);
       delay(200);
       drawDigitalTube(i, EMPTY);
     }

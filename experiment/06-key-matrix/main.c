@@ -15,7 +15,7 @@ void delay(u16 i) {
 #define CHOOSE_C P2_4
 #define SHAPE P0
 #define EMPTY 0x00
-__code u8 shapeTalbe[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07,
+__code u8 shapeTable[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07,
                           0x7f, 0x6f, 0x77, 0x7c, 0x39, 0x5e, 0x79, 0x71};
 void drawDigitalTube(u8 pos, u8 shape) {
   pos = 7 - pos;  // 与硬件有关, 映射顺序
@@ -107,7 +107,7 @@ void main() {
       shape = posY * 4 + posX;
     }
 
-    drawDigitalTube(0, shapeTalbe[shape]);
+    drawDigitalTube(0, shapeTable[shape]);
     delay(200);
     drawDigitalTube(0, 0);
   }

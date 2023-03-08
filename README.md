@@ -13,6 +13,9 @@
 - `index.html`: docsify
 - `command.sh`: 一些命令
 - `experiment/`: 编程的实验
+  - `lib`: 公共的头文件
+  - `**/assets/`: `README.md`的资源文件, eg 图片
+  - `command.sh`: 编译命令
   - `<name>`: 项目名称
     - `README.md`: 实验报告
     - `Makefile`: 编译, 生成 hex 文件
