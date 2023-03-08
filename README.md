@@ -8,6 +8,7 @@
 
 - `.vscode/`: vscode 环境配置
   - `c_pp_properties.json`: c/c++ 配置
+  - `*.code-snippets`: 代码片段
 - `asset/`: docsify
 - `index.html`: docsify
 - `command.sh`: 一些命令

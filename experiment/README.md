@@ -26,10 +26,8 @@ run [path/to/project]
 
 会编译指定工程下的文件, 然后在当前目录生成一个指向生成文件的软链接, 以便于烧录.
 
-### 创建模板
+## markdown
 
-```bash
-ini [name]
-```
+编写 markdown
 
-> `docs/experiment/summary.md`需要自己进一步改进
+输入`@template`会自动补全模板

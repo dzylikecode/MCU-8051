@@ -14,7 +14,7 @@
 
 ## resources
 
-- [code](https://github.com/dzylikecode/MCU-8051/blob/master/experiment/07-IO-74HC595/main.c)
+- <a class="Repos" target="_blank" href="main.c">code</a>
 - [74HC595 instruments](https://www.ti.com/lit/ds/symlink/sn74hc595.pdf?ts=1663727421518&ref_url=https%253A%252F%252Fwww.google.com%252F)
 
   > 关注以下两个部分

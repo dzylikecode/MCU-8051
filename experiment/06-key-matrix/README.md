@@ -21,4 +21,4 @@
 
 ## resources
 
-- [code](https://github.com/dzylikecode/MCU-8051/blob/master/experiment/06-key-matrix/main.c)
+- <a class="Repos" target="_blank" href="main.c">code</a>

@@ -1,0 +1,33 @@
+{
+  // docsify
+  "link pages": {
+    "scope": "markdown",
+    "prefix": "@linkp",
+    "body": ["<a class=\"Pages\" href=\"${1:path}\">${2:title}</a>", "$0"],
+    "description": "link to github pages"
+  },
+  "link blank pages": {
+    "scope": "markdown",
+    "prefix": "@linkpb",
+    "body": [
+      "<a class=\"Pages\" target=\"_blank\" href=\"${1:path}\">${2:title}</a>",
+      "$0"
+    ],
+    "description": "link to github pages, blank"
+  },
+  "link repos": {
+    "scope": "markdown",
+    "prefix": "@linkpg",
+    "body": ["<a class=\"GitHub\" href=\"${1:path}\">${2:title}</a>", "$0"],
+    "description": "link to github repository"
+  },
+  "link blank repos": {
+    "scope": "markdown",
+    "prefix": "@linkpg",
+    "body": [
+      "<a class=\"GitHub\" target=\"_blank\" href=\"${1:path}\">${2:title}</a>",
+      "$0"
+    ],
+    "description": "link to github repository, blank"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  // code template
+  "experiment template": {
+    "scope": "markdown",
+    "prefix": "@template",
+    "body": [
+      "# ${1:title}",
+      "",
+      "$0",
+      "## resources",
+      "",
+      "- <a class=\"Repos\" target=\"_blank\" href=\"main.c\">code</a>"
+    ],
+    "description": "markdown template"
+  }
+}
