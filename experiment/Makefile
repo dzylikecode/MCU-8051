@@ -1,28 +1,22 @@
 ##############################################################
 #### simple
 # directory
-d?=01-LED-blink/ 
-n?=template
+d?=01-LED-blink#
 #### detail
-proj=$(d)
-proj_bin=$(proj)/bin
-bin=./bin
-utils=../utils
-name=$(n)
+proj=./$(d)#
+proj_bin=$(proj)/bin#
+bin=./bin#
 
 default: run
 
-$(bin):
-	@mkdir -p $(bin)
-
-run: $(bin)
+run:
 	@make -C $(proj)
-# 修改软链接
-	@cp -f $(proj_bin)/* $(bin)
+#	echo "$(bin)"
+#	echo "$(proj_bin)"
+# 删除当下 bin 目录
+	-@rm -r $(bin)
+# 移动到当下 bin 目录
+	@mv $(proj_bin) $(bin)
 	@echo "Done!"
 
-ini:
-	@make -C $(utils) ini n=$(n)
-	
-
-.PHONY: run ini
+.PHONY: run
