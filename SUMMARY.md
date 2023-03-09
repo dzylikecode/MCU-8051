@@ -2,6 +2,7 @@
 - [环境搭建](/docs/environment.md)
 - [SDCC 语法](/docs/syntax.md)
 - [电路图](/docs/pdf.md)
-- [编程规范](/docs/code-style.md)
+- [编程规范](/docs/code-style/README.md)
+- [rethink](/docs/rethink/README.md)
 - [issue](/docs/issue.md)
 - [timeline](/timeline.md)

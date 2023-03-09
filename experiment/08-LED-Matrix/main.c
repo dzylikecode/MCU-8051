@@ -18,17 +18,22 @@ void sendByte74HC595(u8 data);
 // LED 点阵
 
 #define createVector          sendByte74HC595
-#define copyVectorTo(index)   set(P0, ~index)
+#define clearVector()         createVector(0x00)
+#define copyVectorTo(index)   set(P0, ~(index))
 
 void delay(u16 i);
 
+u8 vecs[] = {0x00, 0x00, 0x3e, 0x41, 0x41, 0x41, 0x3e, 0x00}; // 向量组
+
 void main() {
-  copyVectorTo(0x41);
-  u8 vec = (u8)~0x01; 
+
   while (1) {
-    createVector(vec);
-    vec = RLC(vec, 1);
-    delay(10000);
+    for (int i = 0; i < 8; i++) {
+      copyVectorTo(1 << i);
+      createVector(vecs[i]);
+      delay(100);
+      clearVector();  // 消隐
+    }
   }
 }
 

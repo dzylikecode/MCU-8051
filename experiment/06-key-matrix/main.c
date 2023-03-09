@@ -59,7 +59,7 @@ void main() {
 void drawDigitalTube(u8 pos, u8 shape) {
 
 
-// 注意: 重新映射了底层的 ABC
+// ! 重新映射了底层的 ABC
 #define setABC(a, b, c) \
   set(CHOOSE_A, (c));   \
   set(CHOOSE_B, (b));   \

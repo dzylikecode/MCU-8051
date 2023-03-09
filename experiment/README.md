@@ -26,13 +26,17 @@ run <path>
 
 输入`@template`会自动补全模板
 
+---
+
+- 可以记录
+
 ## code
 
 - google c style
 
   采用 VSCode 插件, 选择`google` format 方式
 
-具体见 [code style](/docs/code-style.md)
+具体见 [code style](/docs/code-style/README.md)
 
 ## tips
 
@@ -54,3 +58,7 @@ run <path>
 |                      左边                       |      右边      |
 | :---------------------------------------------: | :------------: |
 | 点击烧录即可, hex 文件会被覆盖, 不需要重新选择. | 编译和编写代码 |
+
+---
+
+由于 hex 文件时文本文件, 可以通过复制二进制的内容到烧录的 hex 来实现替换

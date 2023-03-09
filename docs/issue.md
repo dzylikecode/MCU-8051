@@ -9,3 +9,16 @@
 - 线不对
 
   有充电线和数据线之分
+
+## 代码错误
+
+```c
+#define copyVectorTo(index)   set(P0, ~index)
+copyVectorTo(1 << i);
+```
+
+宏展开后, 优先级不对
+
+```c
+#define copyVectorTo(index)   set(P0, ~(index))
+```

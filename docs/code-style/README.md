@@ -13,6 +13,12 @@
 #define turnOnLED(led)  SetBit(led, LED_ON)
 ```
 
+---
+
+逻辑一致
+
+0 是关闭, 熄灭, 1 是打开, 点亮
+
 ## 可读性
 
 - 将任务分解为直观的基本步骤
@@ -80,3 +86,18 @@ setABC(0, 0, 1);
 ## better comment
 
 使用 VSCode 插件, _better comment_
+
+```c
+/**
+ * @description: 用于描述函数的功能
+ * @param {type} name - 用于描述参数的功能
+ * @return: 用于描述返回值的功能
+ * @example: 用于描述函数的使用方法
+ * * Important: 用于描述重要的信息
+ * ! Warning: 用于描述警告信息
+ * ? Question: 用于描述问题
+ * TODO: 用于描述待办事项
+ */
+```
+
+![](assets/2023-03-09-18-37-47.png)

@@ -33,6 +33,8 @@
 
 - [ubuntu-sdcc](https://manpages.ubuntu.com/manpages/bionic/man1/sdcc.1.html)
 
+- [sdcc-manual](https://sdcc.sourceforge.net/doc/sdccman.pdf)
+
 ## 烧录
 
 - 采用普中科技自带的烧录软件

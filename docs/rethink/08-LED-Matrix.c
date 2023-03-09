@@ -1,3 +1,4 @@
+// ! deprecated, just for example
 #include <8052.h>
 
 #include "lib/utils.h"
@@ -17,18 +18,24 @@ void sendByte74HC595(u8 data);
 ////////////////////////////////////////////////////////////
 // LED 点阵
 
-#define createVector          sendByte74HC595
-#define copyVectorTo(index)   set(P0, ~index)
+#define setLEDMatrixRow       sendByte74HC595
+#define setLEDMatrixCol(ch)   set(P0, ~ch)
 
 void delay(u16 i);
 
+u8 rowShape[] = {0x00, 0x00, 0x3e, 0x41, 0x41, 0x41, 0x3e, 0x00}; // 位选数据
+u8 colShape[] = {1<<7, 1<<6, 1<<5, 1<<4, 1<<3, 1<<2, 1<<1, 1<<0}; // 段选数据
+
 void main() {
-  copyVectorTo(0x41);
-  u8 vec = (u8)~0x01; 
+
   while (1) {
-    createVector(vec);
-    vec = RLC(vec, 1);
-    delay(10000);
+    setLEDMatrixCol(0x7f);
+    for (int i = 0; i < 8; i++) {
+      setLEDMatrixCol(colShape[i]);  
+      setLEDMatrixRow(rowShape[i]);  
+      delay(100);                    
+      setLEDMatrixRow(0x00);         // 消隐
+    }
   }
 }
 
