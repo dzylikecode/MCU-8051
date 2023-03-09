@@ -21,7 +21,7 @@ void delay(u16 i) {
 
 /**
  * @brief 74HC595, 从高位开始写入
- * @param dat
+ * @param data
  */
 void sendByte74HC595(u8 data) {
   for (u8 i = 0; i < 8; i++) {
@@ -31,7 +31,7 @@ void sendByte74HC595(u8 data) {
     data <<= 1;
   }
   set(RCLK, 0);
-  // DELAY();
+  DELAY();
   set(RCLK, 1);  // 上升沿 -> 锁存
 }
 ////////////////////////////////////////////////////////////

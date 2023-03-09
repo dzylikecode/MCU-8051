@@ -19,8 +19,8 @@ __code u8 shapeTable[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07,
 #define initRow()     set(KEY, KEY_ROW_MASK)
 #define initCol()     set(KEY, KEY_COL_MASK)
 #define getKey(key)   (~get(KEY))  // reverse, 1101 -> 0010
-#define getRowKey()   (initRow(), ((getKey(KEY) & KEY_ROW_MASK) >> KEY_ROW_BIT))
-#define getColKey()   (initCol(), ((getKey(KEY) & KEY_COL_MASK) >> KEY_COL_BIT))
+#define getRowKey()   (initRow(), ((getKey(KEY) & KEY_ROW_MASK) >> KEY_ROW_BIT)) // eg. 0x20 -> 0x02 移动高四位
+#define getColKey()   (initCol(), ((getKey(KEY) & KEY_COL_MASK) >> KEY_COL_BIT)) // eg. 0x02 -> 0x02 不变
 
 void drawDigitalTube(u8 pos, u8 shape);
 u8 transCode(u8 code);
@@ -29,7 +29,7 @@ void delay(u16 i);
 void main() {
   u8 posX;
   u8 posY;
-  u8 codeX;
+  u8 codeX; // 0x1, 0x2, 0x4, 0x8, 位置编码
   u8 codeY;
   u8 shape = 0;
   while (1) {
@@ -41,9 +41,9 @@ void main() {
       shape = posY * 4 + posX;
     }
 
-    drawDigitalTube(0, shapeTable[shape]);
+    drawDigitalTube(7, shapeTable[shape]);
     delay(200);
-    drawDigitalTube(0, 0);
+    drawDigitalTube(7, 0);
   }
 }
 
@@ -52,13 +52,20 @@ void main() {
 #define CHOOSE_C  P2_4
 #define SHAPE     P0
 
+/**
+ * @param pos: position
+ * @param shape: shape of digital tube
+*/
 void drawDigitalTube(u8 pos, u8 shape) {
-#define setABC(a, b, c) \
-  set(CHOOSE_A, a);     \
-  set(CHOOSE_B, b);     \
-  set(CHOOSE_C, c)
 
-  //   pos = 7 - pos;  // 与硬件有关, 映射顺序
+
+// 注意: 重新映射了底层的 ABC
+#define setABC(a, b, c) \
+  set(CHOOSE_A, (c));   \
+  set(CHOOSE_B, (b));   \
+  set(CHOOSE_C, (a))
+
+  // pos = 7 - pos;  // 与硬件有关, 映射顺序
   switch (pos) {
     case 0:
       setABC(0, 0, 0);
@@ -87,6 +94,7 @@ void drawDigitalTube(u8 pos, u8 shape) {
     default:
       break;
   }
+  // setABC(1, 1, 0);
   set(SHAPE, shape);
 }
 
