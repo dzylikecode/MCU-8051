@@ -9,14 +9,14 @@ typedef unsigned int u16;
 #define setChar(var, res)       set(var, (u8)(res))
 #define clsBit(var, bit)        set(var, (var) & (~(1 << (bit))))
 #define setBit(var, bit)        set(var, (var) | (1 << (bit)))
-#define setBitEx(var, bit, res) setChar(var, clsBit(var, bit) | ((res) << (bit)))
+#define setBitEx(var, bit, res) setChar(var, clsBit(var, bit) | ((res) << (bit))) // similar to var[bit] = res
 #define get(var)                (var)
 
 #else // cheat vscode
 
 #define set(var, res)           0
 #define setChar(var, res)       0
-#define setBitEx(var, bit, res) 0
+#define setBitEx(var, bit, res) 0 // similar to var[bit] = res
 #define get(var)                0
 
 #define P2_0                    0
@@ -24,7 +24,7 @@ typedef unsigned int u16;
 
 #define __asm                   {
 #define __endasm                }
-#define nop ;
+#define nop                     ;
 
 #endif // end of VSCODE_C_PP_PROPERTIES_JSON
 

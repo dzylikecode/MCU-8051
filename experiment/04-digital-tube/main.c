@@ -3,12 +3,11 @@
 #include "lib/utils.h"
 
 #define DIG_NUM     8
-#define CHOOSE_A    P2_2
-#define CHOOSE_B    P2_3
-#define CHOOSE_C    P2_4
-#define SHAPE       P0
 #define EMPTY       0x00
 
+/**
+ * 0-9, A-F
+*/
 __code u8 shapeTable[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07,
                           0x7f, 0x6f, 0x77, 0x7c, 0x39, 0x5e, 0x79, 0x71};
 
@@ -25,13 +24,25 @@ void main() {
   }
 }
 
-void drawDigitalTube(u8 pos, u8 shape) {
-#define setABC(a, b, c) \
-  set(CHOOSE_A, a);     \
-  set(CHOOSE_B, b);     \
-  set(CHOOSE_C, c)
 
-//   pos = 7 - pos;  // 与硬件有关, 映射顺序
+#define CHOOSE_A    P2_2
+#define CHOOSE_B    P2_3
+#define CHOOSE_C    P2_4
+#define SHAPE       P0
+
+/**
+ * @param pos: position
+ * @param shape: shape of digital tube
+*/
+void drawDigitalTube(u8 pos, u8 shape) {
+
+
+#define setABC(a, b, c) \
+  set(CHOOSE_A, (a));   \
+  set(CHOOSE_B, (b));   \
+  set(CHOOSE_C, (c))
+
+  // pos = 7 - pos;  // 与硬件有关, 映射顺序
   switch (pos) {
     case 0:
       setABC(0, 0, 0);
@@ -60,6 +71,7 @@ void drawDigitalTube(u8 pos, u8 shape) {
     default:
       break;
   }
+  // setABC(1, 1, 0);
   set(SHAPE, shape);
 }
 

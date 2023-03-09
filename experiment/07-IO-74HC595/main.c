@@ -10,10 +10,14 @@ void delay(u16 i) {
 ////////////////////////////////////////////////////////////
 // 74HC595
 #define SRCLK P3_6
-#define RCLK P3_5
-#define SER P3_4
+#define RCLK  P3_5
+#define SER   P3_4
 
-#define DELAY() __asm nop nop __endasm
+#define DELAY() \
+  __asm         \
+    nop;        \
+    nop;        \
+  __endasm
 
 /**
  * @brief 74HC595, 从高位开始写入
@@ -27,7 +31,7 @@ void sendByte74HC595(u8 data) {
     data <<= 1;
   }
   set(RCLK, 0);
-  DELAY();
+  // DELAY();
   set(RCLK, 1);  // 上升沿 -> 锁存
 }
 ////////////////////////////////////////////////////////////

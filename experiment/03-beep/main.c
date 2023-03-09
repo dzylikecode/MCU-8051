@@ -4,10 +4,7 @@
 
 #define BEEP P2_5
 
-void delay(u16 i) {
-  while (i--)
-    ;
-}
+void delay(u16 i);
 
 void main() {
   while (1) {
@@ -16,4 +13,9 @@ void main() {
     set(BEEP, !BEEP);
     delay(100);
   }
+}
+
+void delay(u16 i) {
+  while (i--)
+    ;
 }

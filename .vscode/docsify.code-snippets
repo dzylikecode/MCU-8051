@@ -1,5 +1,11 @@
 {
   // docsify
+  // - `$0`: the **final** cursor
+  // - `$1`: the first cursor
+  // - `$2`: the next cursor when type `tab`
+  //
+  // ${1:path}: `path` is a suggestion
+  // ["```${1:language}", "$2", "```", "$0"], each element occupy one line
   "link pages": {
     "scope": "markdown",
     "prefix": "@linkp",
