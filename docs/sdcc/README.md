@@ -42,6 +42,14 @@
 
   SDCC Manual 中的 Code generation 部分(使用 `ctrl+f` 全局搜索`rotate`定位)
 
+## interrupt
+
+```c
+void INT0_ISR (void) __interrupt 0{
+    // interrupt code
+}
+```
+
 ## reference
 
 - [51 单片机(STC89C52)在 Ubuntu 下的开发](https://www.cnblogs.com/milton/p/14994533.html)

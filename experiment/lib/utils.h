@@ -20,15 +20,15 @@ typedef unsigned int u16;
 
 #else // cheat vscode
 
+#include "vs8052.h"
+
 #define set(var, res)           0
 #define setChar(var, res)       0
-#define setBitEx(var, bit, res) 0 // similar to var[bit] = res
+#define setBitEx(var, bit, res) 0
 #define get(var)                0
 
-#define P2_0                    0
-#define P0                      0
-#define __code
 
+#define __code
 #define __asm                   {
 #define __endasm                }
 #define nop                     ;

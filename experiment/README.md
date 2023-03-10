@@ -62,3 +62,9 @@ run <path>
 ---
 
 由于 hex 文件时文本文件, 可以通过复制二进制的内容到烧录的 hex 来实现替换
+
+## reference
+
+- [C8051F300_examples](https://github.com/merbanan/C8051F300_examples)
+
+  推荐阅读, 可以快速了解 sdcc 语法
