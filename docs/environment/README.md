@@ -79,6 +79,12 @@
     sudo chmod a+rw /dev/ttyUSB0
     ```
 
+## debug
+
+可以先学习 uart, 然后用 uart 进行调试
+
+在网上找一些串口助手, 或着 GitHub 找代码
+
 ## vscode
 
 - 头文件

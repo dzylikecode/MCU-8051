@@ -24,6 +24,7 @@ int main() {
 
 void UART_init() {
   PCON &= 0x7F;                   // 波特率不倍速
+  // PCON = 0x80;                    // 波特率倍速
   SCON = 0x50;                    // 8位数据,仅用于发送
   TMOD &= 0x0F;                   // 清除定时器1模式位
   TMOD |= 0x20;                   // 设定定时器1为8位自动重装方式
@@ -43,8 +44,10 @@ void UART_txChar(char ch) {
 
 void UART_routine() __interrupt 4 {
   if (RI == 1) {
-    UART_txChar(SBUF);
-    RI = 0;                // 复位
+    ES = 0;                         // 关闭串口中断
+    RI = 0;                         // 复位
+    UART_txChar(SBUF);              // ! 它会触发中断, 所以需要事先禁用中断
+    ES = 1;                         // 启动串口中断
   }
 }
 

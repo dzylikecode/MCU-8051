@@ -1,5 +1,7 @@
 # UART
 
+串口助手可以网上找, 在 GitHub 上找代码也可
+
 ## code
 
 ### synchronous
@@ -56,6 +58,31 @@ void UART_Routine() interrupt 4 {
 非阻塞式接收
 
 > 类比 js, 回调
+
+## issue
+
+```c
+// 串口中断
+void UART_Routine() interrupt 4 {
+  if (RI == 1) {
+    UART_txChar(SBUF);
+    RI = 0;               // 复位
+  }
+}
+```
+
+!> `UART_txChar`会触发中断, 所以需要先禁用中断
+
+```c
+void UART_routine() __interrupt 4 {
+  if (RI == 1) {
+    ES = 0;                         // 关闭串口中断
+    RI = 0;                         // 复位
+    UART_txChar(SBUF);              // ! 它会触发中断, 所以需要先禁用中断
+    ES = 1;                         // 启动串口中断
+  }
+}
+```
 
 ## resources
 
